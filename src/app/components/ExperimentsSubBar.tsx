@@ -4,7 +4,7 @@ import { useModal } from "./ModalContext";
 export default function ExperimentsSubBar() {
   const { openConnect } = useModal();
   return (
-    <div className="flex items-center gap-[3px] my-[6px] shrink-0 h-[80px]">
+    <div className="my-[6px] flex h-[80px] shrink-0 items-center gap-[3px] max-lg:hidden">
       {/* Name */}
       <div className="flex-1 px-16 py-6">
         <h1 className="text-[32px] leading-[48px] font-bold text-[#00E5FF] [text-shadow:0_0_8px_#00E5FF,0_0_24px_#00E5FF,0_0_48px_rgba(0,229,255,0.8)] whitespace-nowrap [font-family:var(--font-orbitron),'Courier_New',monospace]">

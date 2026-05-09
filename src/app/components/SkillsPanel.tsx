@@ -2,7 +2,7 @@ import { skills } from "./data";
 
 export default function SkillsPanel() {
   return (
-    <>
+    <div className="flex min-h-0 flex-1 flex-col">
       <style>{`
         .skill-aside::-webkit-scrollbar { width: 4px; }
         .skill-aside::-webkit-scrollbar-track { background: transparent; margin-top: 16px; margin-bottom: 16px; }
@@ -26,7 +26,7 @@ export default function SkillsPanel() {
         }
       `}</style>
 
-      <aside className="skill-aside p-[4px] flex flex-col gap-[12px] py-4 overflow-y-auto">
+      <aside className="skill-aside flex min-h-0 flex-1 flex-col gap-[12px] overflow-y-auto overscroll-contain p-[4px] py-3 sm:py-4">
         {skills.map((skill) => (
           <article
             key={skill.label}
@@ -45,6 +45,6 @@ export default function SkillsPanel() {
           </article>
         ))}
       </aside>
-    </>
+    </div>
   );
 }

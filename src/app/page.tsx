@@ -4,15 +4,17 @@ import SkillsPanel from "./components/SkillsPanel";
 
 export default function Home() {
   return (
-    <>
-      {/* Info bar */}
+    <div className="mx-2 flex min-h-0 flex-1 flex-col gap-[3px] overflow-hidden pb-2 pt-0 lg:mx-6 lg:pb-0">
       <InfoBar />
 
-      {/* Content: hero + skills */}
-      <div className="grid flex-1 min-h-0 overflow-hidden grid-cols-[1.9fr_1fr] gap-[3px] mx-2 lg:mx-6 max-h-[310px] border border-[#00E5FF]">
-        <HeroImage />
-        <SkillsPanel />
+      <div className="grid min-h-0 flex-1 gap-[3px] overflow-hidden border border-[#00E5FF] max-lg:grid-cols-1 max-lg:grid-rows-[minmax(0,1.15fr)_minmax(0,1fr)] lg:max-h-[310px] lg:grid-cols-[1.9fr_1fr]">
+        <div className="min-h-0 overflow-hidden">
+          <HeroImage />
+        </div>
+        <div className="flex min-h-0 flex-col overflow-hidden">
+          <SkillsPanel />
+        </div>
       </div>
-    </>
+    </div>
   );
 }

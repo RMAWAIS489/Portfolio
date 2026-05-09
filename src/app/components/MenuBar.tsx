@@ -2,33 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navItems } from "./data";
-
-function navHref(item: string) {
-  if (item === "Info") return "/";
-  if (item === "Projects") return "/projects";
-  if (item === "Experiments") return "/experiments";
-  if (item === "Articles") return "/articles";
-  return "#";
-}
-
-function isNavActive(item: string, pathname: string | null) {
-  if (!pathname) return false;
-  if (item === "Info") return pathname === "/";
-  if (item === "Projects")
-    return pathname === "/projects" || pathname.startsWith("/projects/");
-  if (item === "Experiments")
-    return pathname === "/experiments" || pathname.startsWith("/experiments/");
-  if (item === "Articles")
-    return pathname === "/articles" || pathname.startsWith("/articles/");
-  return false;
-}
+import { navItems, navHref, isNavActive } from "./nav-config";
 
 export default function MenuBar({ onLoginClick }: { onLoginClick?: () => void }) {
   const pathname = usePathname();
 
   return (
-    <div className="flex flex-col gap-3 lg:flex-row lg:gap-[3px] px-2 md:px-4 items-stretch my-[16px] shrink-0 min-w-0">
+    <div className="flex w-full flex-row gap-[3px] items-stretch px-4 my-[16px] shrink-0 min-w-0">
       {/* Left block with shimmer scan animation */}
       <div className="border border-[#00E5FF] px-2 md:max-lg:px-8 lg:px-20 py-[6px] flex items-center min-w-0">
         <style>{`
@@ -76,7 +56,7 @@ export default function MenuBar({ onLoginClick }: { onLoginClick?: () => void })
       {/* Login */}
       <button
         onClick={onLoginClick}
-        className="shrink-0 border border-[#00E5FF] text-[#040e0f] uppercase tracking-[0.14em] text-[12px] sm:text-[13px] lg:text-[13px] bg-[#00E5FF] px-3 lg:px-2 py-[6px] whitespace-nowrap hover:bg-[#021114] hover:text-[#00E5FF] transition-colors duration-150 w-full sm:w-auto lg:w-auto"
+        className="w-auto shrink-0 border border-[#00E5FF] bg-[#00E5FF] px-3 py-[6px] text-[12px] uppercase tracking-[0.14em] text-[#040e0f] transition-colors duration-150 hover:bg-[#021114] hover:text-[#00E5FF] sm:text-[13px] lg:px-2 lg:text-[13px]"
       >
         LOGIN
       </button>

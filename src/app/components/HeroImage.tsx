@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function HeroImage() {
   return (
-    <div className="hero-scan px-4 py-4 overflow-hidden relative">
+    <div className="hero-scan relative h-full min-h-0 overflow-hidden px-3 py-3 sm:px-4 sm:py-4">
       <style>{`
         @keyframes heroScan {
           0%   { top: -4px; }

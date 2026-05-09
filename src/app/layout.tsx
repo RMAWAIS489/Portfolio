@@ -32,9 +32,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${orbitron.variable} h-full overflow-hidden antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex h-full min-h-0 flex-col overflow-hidden">
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

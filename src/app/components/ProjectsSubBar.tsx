@@ -4,7 +4,7 @@ import { useModal } from "./ModalContext";
 export default function ProjectsSubBar() {
   const { openConnect } = useModal();
   return (
-    <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-2 lg:gap-[3px] my-[6px] shrink-0 min-w-0 lg:h-[80px]">
+    <div className="my-[6px] flex min-w-0 shrink-0 flex-col items-stretch gap-2 lg:flex-row lg:items-center lg:gap-[3px] lg:h-[80px] max-lg:hidden">
       <div className="flex-1 min-w-0 px-3 py-4 sm:px-6 lg:px-16 lg:py-6">
         <h1 className="text-xl leading-tight sm:text-2xl sm:leading-snug md:text-[28px] md:leading-snug lg:text-[32px] lg:leading-[48px] font-bold text-[#00E5FF] [text-shadow:0_0_8px_#00E5FF,0_0_24px_#00E5FF,0_0_48px_rgba(0,229,255,0.8)] whitespace-normal lg:whitespace-nowrap [font-family:var(--font-orbitron),'Courier_New',monospace]">
           Muhammad Awais
