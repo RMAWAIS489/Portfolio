@@ -1,26 +1,241 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --c: #00E5FF;
+  --c-dim: rgba(0, 229, 255, 0.55);
+  --c-faint: rgba(0, 229, 255, 0.2);
+  --bg: #000b14;
+  --bg-panel: rgba(2, 20, 34, 0.85);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--c);
+  font-family: "Consolas", "Courier New", monospace;
 }
+
+/* ── Page wrapper ── */
+.terminal-bg {
+  background:rgb(2,17,20)
+}
+
+.terminal-shell {
+  border: 1px solid var(--c-dim);
+  background: linear-gradient(180deg, rgba(4, 21, 35, 0.95), rgba(2, 14, 24, 0.96));
+  padding: 4px;
+  box-shadow: 0 0 36px var(--c-faint);
+}
+
+/* ── Top bar ── */
+.top-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  background: rgb(2,17,20);
+  padding: 5px 8px;
+}
+
+.hud-button {
+  min-width: 5.7rem;
+  height: 2.7rem;
+  border: 1px solid var(--c-dim);
+  color: var(--c);
+  font-size: 0.8rem;
+  background: rgba(0, 20, 36, 0.8);
+  display: grid;
+  place-items: center;
+}
+
+/* ── Menu bar ── */
+.menu-bar {
+  display: flex;
+  gap: 3px;
+  align-items: stretch;
+}
+
+.menu-left-block {
+  border: 1px solid var(--c-dim);
+  background: rgba(5, 33, 52, 0.8);
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.menu-left-text {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c);
+}
+
+.menu-nav {
+  display: flex;
+  gap: 3px;
+  flex: 1;
+}
+
+.hud-chip {
+  border: 1px solid var(--c-dim);
+  background: rgba(5, 33, 52, 0.8);
+  padding: 6px 10px;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--c);
+}
+
+.menu-nav .hud-chip {
+  flex: 1;
+  text-align: center;
+}
+
+.is-active-chip {
+  border-color: var(--c);
+  color: var(--c);
+  box-shadow: inset 0 0 0 1px rgba(0, 229, 255, 0.3), 0 0 6px var(--c-faint);
+}
+
+.login-chip {
+  border: 1px solid var(--c);
+  background: linear-gradient(180deg, rgba(0, 229, 255, 0.15), rgba(2, 54, 78, 0.8));
+  color: var(--c);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.62rem;
+  padding: 6px 16px;
+  white-space: nowrap;
+}
+
+/* ── Info bar ── */
+.info-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--c-dim);
+  background: var(--bg-panel);
+  padding: 6px 10px;
+  border-top: 2px solid var(--c);
+}
+
+.info-bar-mid {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.name-glow {
+  font-size: 1.55rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--c);
+  text-shadow: 0 0 16px rgba(0, 229, 255, 0.6);
+  white-space: nowrap;
+}
+
+.hud-inline {
+  border: 1px solid var(--c-dim);
+  padding: 3px 8px;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--c);
+  white-space: nowrap;
+}
+
+.hud-inline-bar {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.is-green {
+  color: var(--c);
+  border-color: var(--c-dim);
+}
+
+.path-chip {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.action-btn {
+  border: 1px solid var(--c-dim);
+  background: linear-gradient(180deg, rgba(0, 229, 255, 0.12), rgba(3, 41, 62, 0.75));
+  padding: 5px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.65rem;
+  white-space: nowrap;
+  color: var(--c);
+}
+
+/* ── Content grid ── */
+/* (inlined to page.tsx) */
+
+/* ── Hero image ── */
+/* (inlined to page.tsx) */
+
+/* ── Skill panel ── */
+/* (inlined to page.tsx) */
+
+/* skill-icon corner brackets — pseudo-elements can't be inlined in Tailwind */
+.skill-icon::before,
+.skill-icon::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: #00E5FF;
+  border-style: solid;
+  opacity: 0.7;
+}
+
+.skill-icon::before {
+  top: 0;
+  left: 0;
+  border-width: 1px 0 0 1px;
+}
+
+.skill-icon::after {
+  bottom: 0;
+  right: 0;
+  border-width: 0 1px 1px 0;
+}
+
+/* ── Footer ── */
+/* (inlined to page.tsx) */
+
+/* ── Blink animation ── */
+@keyframes blink {
+  0%, 49% { color: #00E5FF !important; }
+  50%, 100% { color: rgba(72, 171, 184, 0.25) !important; }
+}
+
+.blink-clock {
+  animation: blink 1.5s step-start infinite;
+}
+
+.blink-active {
+  animation: blink 1.2s step-start infinite;
+}
+
+@keyframes blinkWhiteGray {
+  0%, 49%  { color: #ffffff !important; }
+  50%, 100% { color: #6b7280 !important; }
+}
+
+.blink-white-gray {
+  animation: blinkWhiteGray 1.5s step-start infinite;
+}
+
+/* scrollbar */
+.skill-panel::-webkit-scrollbar { width: 4px; }
+.skill-panel::-webkit-scrollbar-track { background: transparent; }
+.skill-panel::-webkit-scrollbar-thumb { background: var(--c-dim); }
