@@ -16,7 +16,7 @@ export default function ProjectsSubBar() {
           <span className="text-[11px] tracking-[0.15em] uppercase text-[#00E5FF] [font-family:Consolas,'Courier_New',monospace]">
             SYSTEM
           </span>
-          <span className="text-[11px] tracking-[0.15em] uppercase text-[#00E5FF] term-blink [font-family:Consolas,'Courier_New',monospace]">
+          <span className="text-[11px] tracking-[0.15em] uppercase text-[#00E5FF] active-blink [font-family:Consolas,'Courier_New',monospace]">
             ACTIVE
           </span>
         </div>

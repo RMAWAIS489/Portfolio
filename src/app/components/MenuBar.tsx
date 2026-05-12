@@ -29,19 +29,19 @@ export default function MenuBar({ onLoginClick }: { onLoginClick?: () => void })
         `}</style>
         <span className="relative inline-block overflow-hidden text-[11px] sm:text-[13px] lg:text-[14px] uppercase font-bold text-[#00E5FF] whitespace-normal lg:whitespace-nowrap">
           <div className="shimmer-bar" />
-          REMOTE-ACCESS – SECURE CONNECTION
+          REMOTE-ACCESS - SECURE CONNECTION
         </span>
       </div>
 
       {/* Nav items */}
-      <div className="flex flex-nowrap gap-3 px-2 sm:px-4 md:max-lg:px-6 overflow-x-auto min-h-[44px] min-w-0 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin] lg:flex-1 lg:overflow-visible lg:gap-8 lg:px-12 lg:py-0">
+      <div className="flex flex-nowrap gap-3 px-2 sm:px-4 md:max-lg:px-6 overflow-x-auto min-w-0 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin] lg:flex-1 lg:overflow-visible lg:gap-8 lg:px-12 lg:py-0">
         {navItems.map((item) => {
           const active = isNavActive(item, pathname);
           return (
             <Link
               key={item}
               href={navHref(item)}
-              className={`flex shrink-0 items-center justify-center border bg-[#021114] px-[10px] py-[6px] sm:px-[12px] text-[11px] sm:text-[13px] tracking-[0.12em] uppercase whitespace-nowrap text-[#00E5FF] [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace] cursor-pointer transition-all duration-150 hover:bg-[#00E5FF] hover:text-[#021114] hover:shadow-[0_0_10px_rgba(0,229,255,0.7),0_0_20px_rgba(0,229,255,0.35)] lg:px-[12px] lg:text-[13px] ${
+              className={`flex shrink-0 items-center justify-center border bg-[#021114] px-[10px] py-[2px] sm:px-[12px] text-[11px] sm:text-[13px] tracking-[0.12em] uppercase whitespace-nowrap text-[#00E5FF] [font-family:var(--font-mono)] cursor-pointer transition-all duration-150 hover:bg-[#00E5FF] hover:text-[#021114] hover:shadow-[0_0_10px_rgba(0,229,255,0.7),0_0_20px_rgba(0,229,255,0.35)] lg:px-[12px] lg:text-[13px] ${
                 active
                   ? "border-[#7ba205] shadow-[0_0_10px_rgba(0,229,255,0.7),0_0_20px_rgba(0,229,255,0.35)] text-[#7ba205] hover:text-[#7ba205] [text-shadow:0_0_8px_rgba(123,162,5,0.8),0_0_16px_rgba(123,162,5,0.4)] font-bold"
                   : "border-[#00E5FF]"
@@ -56,7 +56,7 @@ export default function MenuBar({ onLoginClick }: { onLoginClick?: () => void })
       {/* Login */}
       <button
         onClick={onLoginClick}
-        className="w-auto shrink-0 border border-[#00E5FF] bg-[#00E5FF] px-3 py-[6px] text-[12px] uppercase tracking-[0.14em] text-[#040e0f] transition-colors duration-150 hover:bg-[#021114] hover:text-[#00E5FF] sm:text-[13px] lg:px-2 lg:text-[13px]"
+        className="w-auto shrink-0 border border-[#00E5FF] bg-[#00E5FF] px-3 py-[2px] text-[12px] uppercase tracking-[0.14em] text-[#040e0f] transition-colors duration-150 hover:bg-[#021114] hover:text-[#00E5FF] sm:text-[13px] lg:px-2 lg:text-[13px]"
       >
         LOGIN
       </button>

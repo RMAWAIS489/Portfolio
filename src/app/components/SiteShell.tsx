@@ -8,6 +8,7 @@ import LoginModal from "./LoginModal";
 import ConnectModal from "./ConnectModal";
 import MobileNavDrawer from "./MobileNavDrawer";
 import { ModalProvider } from "./ModalContext";
+import PageLoader from "./PageLoader";
 
 export default function SiteShell({ children }: { children: React.ReactNode }) {
   const [loginOpen, setLoginOpen] = useState(false);
@@ -21,6 +22,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
       openConnect={() => setConnectOpen(true)}
       openLogin={() => setLoginOpen(true)}
     >
+      <PageLoader />
       <div className="flex h-[100dvh] flex-col overflow-hidden bg-[#021114] text-cyan-100">
         <div className="mx-auto flex min-h-0 w-full flex-1 flex-col">
           <TopBar

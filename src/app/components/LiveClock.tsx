@@ -19,19 +19,8 @@ export default function LiveClock() {
   }, []);
 
   return (
-    <>
-      <style>{`
-        @keyframes termBlink {
-          0%, 49%  { color: #00E5FF; }
-          50%, 100% { color: #003344; }
-        }
-        .term-blink {
-          animation: termBlink 2s step-start infinite !important;
-        }
-      `}</style>
-      <p className="term-blink font-normal text-[12px]">
-        <span ref={ref} />
-      </p>
-    </>
+    <p className="term-blink font-normal text-[12px]">
+      <span ref={ref} />
+    </p>
   );
 }

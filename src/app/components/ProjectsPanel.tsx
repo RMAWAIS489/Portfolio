@@ -1,25 +1,32 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
-import { dummyProjects } from "./projects-data";
+import { projects, type Project } from "./projects-data";
+import ProjectModal from "./ProjectModal";
 
 const categories = ["All", "Frontend", "Full Stack", "Backend"];
 
-function ProjectThumb({ label }: { label: string }) {
-  const ch = label.replace(/\s/g, "").slice(0, 2).toUpperCase();
+function ProjectThumb({ project }: { project: Project }) {
   return (
-    <span
-      className="inline-grid h-9 w-9 shrink-0 place-items-center border border-[#00E5FF] bg-[#021320] text-[10px] font-bold tracking-wider text-[#00E5FF] shadow-[0_0_6px_rgba(0,229,255,0.35)] [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]"
-      aria-hidden
-    >
-      {ch}
+    <span className="inline-grid h-9 w-9 shrink-0 place-items-center border border-gray-700 bg-[#021320] shadow-[0_0_6px_rgba(0,229,255,0.35)] overflow-hidden ">
+      <Image
+        src={project.logo}
+        alt={project.name}
+        width={28}
+        height={28}
+        className="object-contain"
+      />
     </span>
   );
 }
 
 export default function ProjectsPanel() {
   const [active, setActive] = useState("All");
-  const filtered = active === "All" ? dummyProjects : dummyProjects.filter((p) => p.type === active);
+  const [selected, setSelected] = useState<Project | null>(null);
+
+  const filtered =
+    active === "All" ? projects : projects.filter((p) => p.type === active);
 
   return (
     <div className="flex flex-1 min-h-0 flex-col min-w-0">
@@ -52,7 +59,7 @@ export default function ProjectsPanel() {
         <aside className="proj-scroll flex flex-col shrink-0 border-b border-[#00E5FF] lg:border-b-0 lg:border-r overflow-y-auto max-h-[min(280px,42vh)] sm:max-h-[min(320px,38vh)] lg:max-h-none">
           {/* Header */}
           <div className="px-4 py-[7px] bg-[rgb(42,52,54)] border-b border-[#00E5FF] shrink-0">
-            <span className="text-[13px] uppercase tracking-[0.14em] font-bold text-[#b8e063] [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
+            <span className="text-[14px] uppercase tracking-[0.14em] font-bold text-[#b8e063] [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
               FILTER
             </span>
           </div>
@@ -84,7 +91,7 @@ export default function ProjectsPanel() {
           </div>
         </aside>
 
-        {/* Project table — thead sticky inside the same scroll container so columns always align */}
+        {/* Project table */}
         <div className="proj-scroll flex flex-col min-h-0 min-w-0 bg-[#021114] overflow-y-auto overflow-x-auto">
           <table className="w-full min-w-[520px] border-collapse table-fixed lg:min-w-0">
             <colgroup>
@@ -94,13 +101,13 @@ export default function ProjectsPanel() {
             </colgroup>
             <thead className="sticky top-0 z-10">
               <tr className="bg-[rgb(42,52,54)] uppercase tracking-[0.14em] text-[13px] font-bold text-[#b8e063]">
-                <th className="text-left px-4 py-2 font-bold [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
+                <th className="text-left px-4 py-2 text-[14px] font-bold [font-family:var(--font-mono)]">
                   NAME
                 </th>
-                <th className="text-right px-4 py-2 font-bold tabular-nums [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
+                <th className="text-right px-4 py-2 text-[14px] font-bold tabular-nums [font-family:var(--font-mono)]">
                   SIZE
                 </th>
-                <th className="text-right px-4 py-2 font-bold [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
+                <th className="text-right px-4 py-2 text-[14px] font-bold [font-family:var(--font-mono)]">
                   TYPE
                 </th>
               </tr>
@@ -109,21 +116,22 @@ export default function ProjectsPanel() {
               {filtered.map((p) => (
                 <tr
                   key={p.id}
+                  onClick={() => setSelected(p)}
                   className="proj-row border-b border-[#00E5FF] hover:bg-[rgba(0,229,255,0.04)] cursor-pointer"
                 >
                   <td className="px-4 py-3 relative">
                     <div className="proj-scan-line" />
                     <div className="flex items-center gap-3 min-w-0">
-                      <ProjectThumb label={p.name} />
-                      <span className="text-[15px] font-bold text-[#00E5FF] truncate [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace] [text-shadow:0_0_8px_rgba(0,229,255,0.35)]">
+                      <ProjectThumb project={p} />
+                      <span className="text-[16px]  text-[#00E5FF] truncate [font-family:var(--font-mono)] [text-shadow:0_0_8px_rgba(0,229,255,0.35)]">
                         {p.name}
                       </span>
                     </div>
                   </td>
-                  <td className="px-4 py-3 text-right tabular-nums text-[14px] text-[#00E5FF] whitespace-nowrap [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
+                  <td className="px-4 py-3 text-right tabular-nums text-[14px] text-[#00E5FF] whitespace-nowrap [font-family:var(--font-mono)]">
                     {p.size}
                   </td>
-                  <td className="px-4 py-3 text-right text-[14px] text-[#00E5FF] whitespace-nowrap [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
+                  <td className="px-4 py-3 text-right text-[14px] text-[#00E5FF] whitespace-nowrap [font-family:var(--font-mono)]">
                     {p.type}
                   </td>
                 </tr>
@@ -131,8 +139,12 @@ export default function ProjectsPanel() {
             </tbody>
           </table>
         </div>
-
       </div>
+
+      {/* Modal */}
+      {selected && (
+        <ProjectModal project={selected} onClose={() => setSelected(null)} />
+      )}
     </div>
   );
 }
