@@ -77,16 +77,16 @@ export default function LoginModal({ onClose }: Props) {
         <div className="flex items-center justify-between px-4 py-[10px] border-b border-[#00E5FF] bg-[#021320]">
           <div className="flex items-center gap-3">
             {/* Warning icon */}
-            <div className="w-[28px] h-[28px] border-2 border-[#b8e063] flex items-center justify-center shrink-0">
-              <span className="text-[#b8e063] font-black text-[14px] leading-none">!</span>
+            <div className="w-[28px] h-[28px] border-2 border-[#7ba205] flex items-center justify-center shrink-0">
+              <span className="text-[#7ba205] font-black text-[14px] leading-none">!</span>
             </div>
-            <span className="text-[14px] font-bold tracking-[0.18em] uppercase text-[#b8e063] [font-family:var(--font-orbitron),sans-serif]">
+            <span className="text-[13px] font-bold tracking-wider uppercase text-[#7ba205] [font-family:var(--font-orbitron),sans-serif]">
               SYSTEM AUTHENTICATION
             </span>
           </div>
           <button
             onClick={onClose}
-            className="w-[28px] h-[28px] border border-[#00E5FF] flex items-center justify-center text-[#00E5FF] hover:bg-[#00E5FF] hover:text-[#021114] transition-colors duration-150 text-[12px] font-bold"
+            className="w-[28px] h-[28px] border border-[#7ba205] flex items-center justify-center text-[#7ba205] hover:bg-[#00E5FF] hover:text-[#021114] transition-colors duration-150 text-[12px] font-bold"
             aria-label="Close"
           >
             X
@@ -110,7 +110,7 @@ export default function LoginModal({ onClose }: Props) {
         <div className="px-6 py-5 flex flex-col gap-5">
           {/* Heading */}
           <div className="flex flex-col gap-1">
-            <p className="text-[13px] font-bold tracking-[0.14em] uppercase text-[#b8e063] [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
+            <p className="text-[13px] font-bold tracking-[0.14em] uppercase text-[#7ba205] [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
               ENTER ROOT ACCESS CREDENTIALS
             </p>
             <div className="w-full h-px bg-[rgba(0,229,255,0.2)]" />
@@ -154,7 +154,7 @@ export default function LoginModal({ onClose }: Props) {
 
           {/* AUTHENTICATE button */}
           <button
-            className="w-full py-[14px] bg-[#00E5FF] text-[#021114] text-[14px] font-black tracking-[0.2em] uppercase [font-family:var(--font-orbitron),sans-serif] hover:bg-[#021114] hover:text-[#00E5FF] hover:shadow-[0_0_16px_rgba(0,229,255,0.5)] border-2 border-[#00E5FF] transition-all duration-150"
+            className="w-full py-[14px] bg-transparent text-[#7ba205] text-[14px] font-black tracking-[0.2em] uppercase [font-family:var(--font-orbitron),sans-serif] hover:bg-[#00E5FF] hover:text-[#021114] hover:shadow-[0_0_16px_rgba(0,229,255,0.5)] border-2 border-[#7ba205] transition-all duration-150"
             onClick={() => { /* auth logic here */ }}
           >
             AUTHENTICATE
@@ -165,7 +165,7 @@ export default function LoginModal({ onClose }: Props) {
         <div className="flex items-center justify-end px-4 py-[8px] border-t border-[#00E5FF] bg-[#021320]">
           <button
             onClick={onClose}
-            className="px-4 py-[6px] border border-[#00E5FF] text-[#00E5FF] text-[12px] font-bold tracking-[0.14em] uppercase [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace] hover:bg-[#00E5FF] hover:text-[#021114] transition-all duration-150"
+            className="px-4 py-[6px] border border-[#7ba205] text-[#7ba205] text-[13px] font-bold tracking-wide uppercase [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace] hover:bg-[#00E5FF] hover:text-[#021114] transition-all duration-150"
           >
             DISCONNECT
           </button>

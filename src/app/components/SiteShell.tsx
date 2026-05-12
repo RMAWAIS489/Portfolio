@@ -6,6 +6,7 @@ import MenuBar from "./MenuBar";
 import Footer from "./Footer";
 import LoginModal from "./LoginModal";
 import ConnectModal from "./ConnectModal";
+import SystemOverrideModal from "./SystemOverrideModal";
 import MobileNavDrawer from "./MobileNavDrawer";
 import { ModalProvider } from "./ModalContext";
 import PageLoader from "./PageLoader";
@@ -13,6 +14,7 @@ import PageLoader from "./PageLoader";
 export default function SiteShell({ children }: { children: React.ReactNode }) {
   const [loginOpen, setLoginOpen] = useState(false);
   const [connectOpen, setConnectOpen] = useState(false);
+  const [overrideOpen, setOverrideOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const closeMobileNav = useCallback(() => setMobileNavOpen(false), []);
@@ -21,6 +23,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
     <ModalProvider
       openConnect={() => setConnectOpen(true)}
       openLogin={() => setLoginOpen(true)}
+      openOverride={() => setOverrideOpen(true)}
     >
       <PageLoader />
       <div className="flex h-[100dvh] flex-col overflow-hidden bg-[#021114] text-cyan-100">
@@ -28,6 +31,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
           <TopBar
             menuOpen={mobileNavOpen}
             onMenuClick={() => setMobileNavOpen((o) => !o)}
+            onWindowAction={() => setOverrideOpen(true)}
           />
           <div className="h-[2px] w-full shrink-0 bg-[#00E5FF]" />
 
@@ -48,8 +52,9 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
           onLoginClick={() => setLoginOpen(true)}
         />
 
-        {loginOpen   && <LoginModal   onClose={() => setLoginOpen(false)}   />}
-        {connectOpen && <ConnectModal onClose={() => setConnectOpen(false)} />}
+        {loginOpen    && <LoginModal    onClose={() => setLoginOpen(false)}    />}
+        {connectOpen  && <ConnectModal  onClose={() => setConnectOpen(false)}  />}
+        {overrideOpen && <SystemOverrideModal onClose={() => setOverrideOpen(false)} />}
       </div>
     </ModalProvider>
   );

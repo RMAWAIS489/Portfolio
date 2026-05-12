@@ -35,10 +35,10 @@ export default function ProjectModal({ project, onClose }: Props) {
       aria-label={project.name}
     >
       {/* Modal shell */}
-      <div className="relative flex flex-col w-[min(680px,96vw)] max-h-[90dvh] border border-[#00E5FF] bg-[#000d18] shadow-[0_0_40px_rgba(0,229,255,0.25)]">
+      <div className="relative flex flex-col w-[min(680px,96vw)] max-h-[90dvh] border-2 border-[#00E5FF] bg-[#000d18] shadow-[0_0_40px_rgba(0,229,255,0.25)]">
 
         {/* ── Title bar ── */}
-        <div className="flex items-center gap-3 shrink-0 border-b border-[#00E5FF] bg-[#02181c] px-4 py-[10px]">
+        <div className="flex items-center gap-3 shrink-0 border-b-2 border-[#00E5FF] bg-[#02181c] px-4 py-[10px]">
           <span className="grid h-6 w-6 shrink-0 place-items-center bg-[#71a600] text-[#021320] text-[11px] font-black">!</span>
           <span className="flex-1 text-[13px] font-bold tracking-wide uppercase text-[#71a600] [font-family:var(--font-orbitron),monospace] truncate">
             {project.name}
@@ -170,7 +170,7 @@ export default function ProjectModal({ project, onClose }: Props) {
           </div>
 
           {/* ── Footer bar ── */}
-          <div className="flex items-center justify-end shrink-0 border-t border-[#00E5FF] bg-[#02181c] px-4 py-[10px]">
+          <div className="flex items-center justify-end shrink-0 border-t-2 border-[#00E5FF] bg-[#02181c] px-4 py-[10px]">
             <button
               onClick={onClose}
               className="border border-[#71a600] bg-transparent px-4 py-[4px] text-[13px] font-bold tracking-wide uppercase text-[#71a600] hover:bg-[#00E5FF] hover:text-[#021320] transition-colors [font-family:Consolas,'Courier_New',monospace]"

@@ -69,21 +69,20 @@ export default function ConnectModal({ onClose }: Props) {
      
 
       <div className="relative overflow-hidden w-full max-w-[620px] mx-4 border-2 border-[#00E5FF] bg-[#021114] shadow-[0_0_40px_rgba(0,229,255,0.25)] flex flex-col max-h-[90vh]">
-        <div className="connect-modal-scan" />
 
         {/* Title bar */}
-        <div className="flex items-center justify-between px-4 py-[10px] border-b border-[#00E5FF] bg-[#021320] shrink-0">
+        <div className="flex items-center justify-between px-4 py-[10px] border-b-2 border-[#00E5FF] bg-[#021320] shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-[28px] h-[28px] border-2 border-[#b8e063] flex items-center justify-center shrink-0">
-              <span className="text-[#b8e063] font-black text-[14px] leading-none">!</span>
+            <div className="w-[28px] h-[28px] border-2 border-[#7ba205] flex items-center justify-center shrink-0">
+              <span className="text-[#7ba205] font-black text-[14px] leading-none">!</span>
             </div>
-            <span className="text-[14px] font-bold tracking-[0.18em] uppercase text-[#b8e063] [font-family:var(--font-orbitron),sans-serif]">
+            <span className="text-[14px] font-bold tracking-wider uppercase text-[#7ba205] [font-family:var(--font-orbitron),sans-serif]">
               CONNECT
             </span>
           </div>
           <button
             onClick={onClose}
-            className="w-[28px] h-[28px] border border-[#00E5FF] flex items-center justify-center text-[#00E5FF] hover:bg-[#00E5FF] hover:text-[#021114] transition-colors duration-150 text-[12px] font-bold"
+            className="w-[28px] h-[28px] border border-[#7ba205] flex items-center justify-center text-[#7ba205] hover:bg-[#00E5FF] hover:text-[#021114] transition-colors duration-150 text-[12px] font-bold"
             aria-label="Close"
           >
             X
@@ -94,8 +93,14 @@ export default function ConnectModal({ onClose }: Props) {
         <div className="flex items-center gap-6 px-4 py-[7px] border-b border-[rgba(0,229,255,0.15)] bg-[#021114] shrink-0">
           <span className="text-[11px] tracking-[0.14em] uppercase text-[#00E5FF] [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">SYSTEM_ROOT</span>
           <span className="text-[11px] tracking-[0.14em] uppercase text-[#00E5FF] [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">ACCESS LEVEL: PUBLIC</span>
-          <span className="text-[11px] tracking-[0.14em] uppercase text-[rgba(0,229,255,0.5)] blink-conn [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">CONNECTING...</span>
+          <span className="text-[11px] tracking-[0.14em] uppercase [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace] modal-blink">CONNECTING...</span>
         </div>
+
+        {/* Content area with scan beam */}
+        <div className="relative flex flex-col flex-1 min-h-0 overflow-hidden">
+
+          {/* Continuous scan beam */}
+          <div className="modal-scan-beam absolute inset-x-0 pointer-events-none z-50" />
 
         {/* Body */}
         <div className="connect-scroll overflow-y-auto flex-1 px-4 py-3 flex flex-col gap-[8px]">
@@ -124,7 +129,7 @@ export default function ConnectModal({ onClose }: Props) {
           ))}
 
           <div className="flex items-center gap-3 mt-3 mb-1">
-            <span className="text-[12px] font-bold tracking-[0.14em] uppercase text-[#b8e063] whitespace-nowrap [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
+            <span className="text-[12px] font-bold tracking-[0.14em] uppercase text-[#7ba205] whitespace-nowrap [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
               &gt;&gt; DOWNLOAD RESUME
             </span>
             <div className="flex-1 h-px bg-[rgba(0,229,255,0.2)]" />
@@ -133,22 +138,49 @@ export default function ConnectModal({ onClose }: Props) {
           <a
             href="/resume.pdf"
             download
-            className="resume-btn flex items-center justify-center gap-3 border border-[#b8e063] bg-[#021114] px-4 py-[14px] text-[#b8e063] text-[13px] font-bold tracking-[0.18em] uppercase [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace] hover:bg-[#b8e063] hover:text-[#021114] transition-colors duration-150 no-underline mb-1"
+            className="resume-btn flex items-center justify-center gap-3 border border-[#7ba205] bg-[#021114] px-4 py-[14px] text-[#7ba205] text-[13px] font-bold tracking-[0.18em] uppercase [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace] hover:bg-[#00E5FF] hover:text-[#021114] transition-colors duration-150 no-underline mb-1"
           >
             <span className="text-[16px]">⬇</span>
             DOWNLOAD_RESUME.PDF
           </a>
-        </div>
+          </div>{/* end connect-scroll */}
 
-        {/* Footer */}
-        <div className="flex items-center justify-end px-4 py-[8px] border-t border-[#00E5FF] bg-[#021320] shrink-0">
-          <button
-            onClick={onClose}
-            className="px-4 py-[6px] border border-[#00E5FF] text-[#00E5FF] text-[12px] font-bold tracking-[0.14em] uppercase [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace] hover:bg-[#00E5FF] hover:text-[#021114] transition-all duration-150"
-          >
-            DISCONNECT
-          </button>
-        </div>
+          {/* Footer */}
+          <div className="flex items-center justify-end px-4 py-[8px] border-t-2 border-[#00E5FF] bg-[#021320] shrink-0">
+            <button
+              onClick={onClose}
+              className="px-4 py-[6px] border border-[#7ba205] text-[#7ba205] text-[12px] font-bold tracking-wide uppercase [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace] hover:bg-[#00E5FF] hover:text-[#021114] transition-all duration-150"
+            >
+              DISCONNECT
+            </button>
+          </div>
+        </div>{/* end content wrapper */}
+
+        <style>{`
+          .connect-scroll::-webkit-scrollbar { width: 6px; }
+          .connect-scroll::-webkit-scrollbar-track { background: transparent; }
+          .connect-scroll::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.45); }
+          .connect-scroll { scrollbar-width: thin; scrollbar-color: rgba(0,229,255,0.45) transparent; }
+
+          @keyframes modalBlink {
+            0%, 49% { color: #00E5FF; }
+            50%, 100% { color: #01636f; }
+          }
+          .modal-blink {
+            animation: modalBlink 1.2s step-start infinite;
+          }
+
+          @keyframes modalScan {
+            0%   { top: -4px; }
+            100% { top: calc(100% + 80px); }
+          }
+          .modal-scan-beam {
+            height: 4px;
+            background: linear-gradient(to right, rgba(0,229,255,0), rgba(0,229,255,0.8), rgba(0,229,255,0));
+            filter: blur(1px);
+            animation: modalScan 3s linear infinite;
+          }
+        `}</style>
       </div>
     </div>
   );

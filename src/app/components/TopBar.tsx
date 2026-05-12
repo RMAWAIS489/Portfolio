@@ -5,9 +5,10 @@ import LiveClock from "./LiveClock";
 type TopBarProps = {
   onMenuClick?: () => void;
   menuOpen?: boolean;
+  onWindowAction?: () => void;
 };
 
-export default function TopBar({ onMenuClick, menuOpen }: TopBarProps) {
+export default function TopBar({ onMenuClick, menuOpen, onWindowAction }: TopBarProps) {
   return (
     <div className="flex items-center justify-between bg-[#021114] px-2 lg:px-4 py-0.5 shrink-0 gap-2">
       <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3">
@@ -61,6 +62,7 @@ export default function TopBar({ onMenuClick, menuOpen }: TopBarProps) {
 
         {/* Minimize — desktop only */}
         <button
+          onClick={onWindowAction}
           className="hidden h-9 w-11 items-center justify-center border border-[#00E5FF] lg:flex"
           aria-label="Minimize"
         >
@@ -69,6 +71,7 @@ export default function TopBar({ onMenuClick, menuOpen }: TopBarProps) {
 
         {/* Close — desktop only */}
         <button
+          onClick={onWindowAction}
           className="hidden h-9 w-11 place-items-center border border-[#00E5FF] lg:grid"
           aria-label="Close"
         >

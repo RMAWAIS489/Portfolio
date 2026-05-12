@@ -59,7 +59,7 @@ export default function ProjectsPanel() {
         <aside className="proj-scroll flex flex-col shrink-0 border-b border-[#00E5FF] lg:border-b-0 lg:border-r overflow-y-auto max-h-[min(280px,42vh)] sm:max-h-[min(320px,38vh)] lg:max-h-none">
           {/* Header */}
           <div className="px-4 py-[7px] bg-[rgb(42,52,54)] border-b border-[#00E5FF] shrink-0">
-            <span className="text-[14px] uppercase tracking-[0.14em] font-bold text-[#b8e063] [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
+            <span className="text-[14px] uppercase tracking-[0.14em] font-bold text-[#7ba205] [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace]">
               FILTER
             </span>
           </div>
@@ -100,7 +100,7 @@ export default function ProjectsPanel() {
               <col style={{ width: "130px" }} />
             </colgroup>
             <thead className="sticky top-0 z-10">
-              <tr className="bg-[rgb(42,52,54)] uppercase tracking-[0.14em] text-[13px] font-bold text-[#b8e063]">
+              <tr className="bg-[rgb(42,52,54)] uppercase tracking-[0.14em] text-[13px] font-bold text-[#7ba205]">
                 <th className="text-left px-4 py-2 text-[14px] font-bold [font-family:var(--font-mono)]">
                   NAME
                 </th>

@@ -76,7 +76,39 @@ export const projects: Project[] = [
       "Deployed on Firebase Hosting with real-time Firestore listeners, counter offer workflows, document uploads, and activity timelines per offer.",
     ],
   },
- 
+  {
+    id: "3",
+    name: "Amora",
+    type: "Full Stack",
+    size: "1.2 GB",
+    url: "https://amora-tawny.vercel.app",
+    logo: "/amora.png",
+    image: "/project-image-4.png",
+    description: "Full-stack Transportation Management System (TMS) for freight dispatching operations",
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Prisma ORM",
+      "Redux Toolkit",
+      "Firebase Storage",
+      "JWT",
+      "Nodemailer",
+      "Recharts",
+      "Zod",
+      "Formik",
+      "Framer Motion",
+    ],
+    details: [
+      "Full-stack TMS web app for managing freight operations — loads, drivers, fleet, customers, documents, and billing across three role-based portals (Admin, Dispatcher, Driver).",
+      "Built on Next.js App Router with a PostgreSQL database (Neon) managed via Prisma ORM. Authentication uses JWT with refresh token rotation, bcrypt password hashing, and secure password reset via Nodemailer.",
+      "Role-based access control separates Admin, Dispatcher, and Driver workflows. Dispatchers manage the full load lifecycle (Unassigned → Assigned → In Transit → Delivered → Billed → Closed), assign drivers and vehicles, upload billing proofs, and track multi-stop routes.",
+      "Drivers get a dedicated portal to accept/reject loads, mark stop arrivals, upload PODs, and report issues. Fleet management covers vehicles, trailers, fuel reports, and maintenance logs.",
+      "Driver performance is tracked with detailed post-load ratings (punctuality, communication, cargo handling). Firebase Storage handles document uploads (BOL, POD, invoices). Dashboard analytics powered by Recharts. Audit logging tracks all critical actions across the platform.",
+    ],
+  },
 ];
 
 // Legacy alias kept for any existing imports
