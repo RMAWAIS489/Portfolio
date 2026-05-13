@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Project } from "./projects-data";
 
 interface Props {
@@ -12,6 +12,9 @@ interface Props {
 export default function ProjectModal({ project, onClose }: Props) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const beamContainerRef = useRef<HTMLDivElement>(null);
+  const [imgLoaded, setImgLoaded] = useState(false);
+
+  useEffect(() => { setImgLoaded(false); }, [project.id]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -35,7 +38,7 @@ export default function ProjectModal({ project, onClose }: Props) {
       aria-label={project.name}
     >
       {/* Modal shell */}
-      <div className="relative flex flex-col w-[min(680px,96vw)] max-h-[90dvh] border-2 border-[#00E5FF] bg-[#000d18] shadow-[0_0_40px_rgba(0,229,255,0.25)]">
+      <div className="relative flex flex-col w-[min(800px,96vw)] max-h-[80dvh] border-2 border-[#00E5FF] bg-[#000d18] shadow-[0_0_40px_rgba(0,229,255,0.25)]">
 
         {/* ── Title bar ── */}
         <div className="flex items-center gap-3 shrink-0 border-b-2 border-[#00E5FF] bg-[#02181c] px-4 py-[10px]">
@@ -76,13 +79,19 @@ export default function ProjectModal({ project, onClose }: Props) {
             {/* Project image */}
             {project.image && (
               <div className="relative w-full border-b border-[rgba(0,229,255,0.25)] overflow-hidden p-4">
+                {!imgLoaded && (
+                  <div className="w-full h-[220px] bg-[#011018] border border-[rgba(0,229,255,0.15)] rounded-lg overflow-hidden relative">
+                    <div className="img-skeleton-beam" />
+                  </div>
+                )}
                 <Image
                   src={project.image}
                   alt={project.name}
                   width={0}
                   height={0}
                   sizes="100vw"
-                  className="w-full h-auto block rounded-lg"
+                  className={`w-full h-auto block rounded-lg ${imgLoaded ? "img-reveal" : "opacity-0 absolute inset-0"}`}
+                  onLoad={() => setImgLoaded(true)}
                 />
               </div>
             )}
@@ -186,6 +195,26 @@ export default function ProjectModal({ project, onClose }: Props) {
         .proj-modal-scroll::-webkit-scrollbar-track { background: transparent; }
         .proj-modal-scroll::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.45); }
         .proj-modal-scroll { scrollbar-width: thin; scrollbar-color: rgba(0,229,255,0.45) transparent; }
+
+        @keyframes imgReveal {
+          0%   { clip-path: inset(0 0 100% 0); }
+          100% { clip-path: inset(0 0 0% 0); }
+        }
+        .img-reveal {
+          animation: imgReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes skeletonSweep {
+          0%   { left: -60%; }
+          100% { left: 110%; }
+        }
+        .img-skeleton-beam {
+          position: absolute;
+          top: 0; left: -60%;
+          width: 60%; height: 100%;
+          background: linear-gradient(to right, transparent, rgba(0,229,255,0.06), transparent);
+          animation: skeletonSweep 1.4s ease-in-out infinite;
+        }
 
         @keyframes modalBlink {
           0%, 49% { color: #00E5FF; }

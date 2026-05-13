@@ -70,7 +70,7 @@ export default function LoginModal({ onClose }: Props) {
       `}</style>
 
       {/* Modal panel */}
-      <div className="relative overflow-hidden w-full max-w-[620px] mx-4 border-2 border-[#00E5FF] bg-[#021114] shadow-[0_0_40px_rgba(0,229,255,0.25),inset_0_0_0_1px_rgba(0,229,255,0.08)]">
+      <div className="relative overflow-hidden w-full max-w-[800px] mx-4 border-2 border-[#00E5FF] bg-[#021114] shadow-[0_0_40px_rgba(0,229,255,0.25),inset_0_0_0_1px_rgba(0,229,255,0.08)]">
         <div className="modal-scan-line" />
 
         {/* ── Title bar ── */}

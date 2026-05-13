@@ -11,11 +11,11 @@ function ProjectThumb({ project }: { project: Project }) {
   return (
     <span className="inline-grid h-9 w-9 shrink-0 place-items-center border border-gray-700 bg-[#021320] shadow-[0_0_6px_rgba(0,229,255,0.35)] overflow-hidden ">
       <Image
-        src={project.logo}
+        src={project.image ?? project.logo}
         alt={project.name}
-        width={28}
-        height={28}
-        className="object-contain"
+        width={36}
+        height={36}
+        className="object-cover w-full h-full"
       />
     </span>
   );

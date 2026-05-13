@@ -68,7 +68,7 @@ export default function ConnectModal({ onClose }: Props) {
     >
      
 
-      <div className="relative overflow-hidden w-full max-w-[620px] mx-4 border-2 border-[#00E5FF] bg-[#021114] shadow-[0_0_40px_rgba(0,229,255,0.25)] flex flex-col max-h-[90vh]">
+      <div className="relative overflow-hidden w-full max-w-[800px] mx-4 border-2 border-[#00E5FF] bg-[#021114] shadow-[0_0_40px_rgba(0,229,255,0.25)] flex flex-col max-h-[80vh]">
 
         {/* Title bar */}
         <div className="flex items-center justify-between px-4 py-[10px] border-b-2 border-[#00E5FF] bg-[#021320] shrink-0">

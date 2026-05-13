@@ -3,9 +3,10 @@ import { useModal } from "./ModalContext";
 
 interface Props {
   path: string;
+  showMargin?: boolean;
 }
 
-export default function SubBar({ path }: Props) {
+export default function SubBar({ path, showMargin = true }: Props) {
   const { openConnect } = useModal();
   return (
     <div className="h-[90px] max-lg:hidden">
@@ -33,9 +34,9 @@ export default function SubBar({ path }: Props) {
         </div>
 
         {/* Connect / Download buttons */}
-        <div className="flex-1 flex gap-[6px] self-stretch p-[6px] border-2 border-[#00E5FF] bg-[#021320] my-3">
+        <div className={`flex-1 flex gap-[6px] self-stretch p-[6px] border-2 border-[#00E5FF] bg-[#021320] my-3 ${showMargin ? "mr-6" : ""}`}>
           <button onClick={openConnect} className="flex-1 flex flex-col gap-[3px] transition-transform duration-200 hover:scale-95">
-            <div className="h-[8px] w-full bg-[#aaff00] rounded-t-[2px]" />
+            <div className="h-[8px] w-full bg-[#7ba205] rounded-t-[2px]" />
             <div className="flex-1 flex items-center justify-center border border-[#00E5FF] bg-[#021320] uppercase tracking-[0.12em] text-[16px] leading-[24px] text-[#00E5FF] font-bold [font-family:var(--font-orbitron),sans-serif] rounded-b-[2px]">
               Connect
             </div>

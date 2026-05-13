@@ -57,7 +57,9 @@ export default function SystemOverrideModal({ onClose }: Props) {
           <div className="border border-[rgba(0,229,255,0.35)] bg-[#000d18] px-5 py-5 flex gap-4 items-start">
             {/* Icon */}
             <div className="shrink-0 w-[48px] h-[48px] rounded-full border-2 border-[#00E5FF] bg-[#011018] flex items-center justify-center">
-              <span className="text-[#00E5FF] font-black text-[22px] leading-none">!</span>
+              <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="28" height="28" viewBox="0 0 24 24">
+                <path fill="#00E5FF" d="M13 13h-2V7h2m-2 8h2v2h-2m4.73-14H8.27L3 8.27v7.46L8.27 21h7.46L21 15.73V8.27z" />
+              </svg>
             </div>
             {/* Text */}
             <div className="flex flex-col gap-3">
