@@ -1,1 +1,32 @@
-<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000" fill="none" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="pulseGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="50%" stop-color="#7BA205" />
+      <stop offset="100%" stop-color="#00E5FF" />
+    </linearGradient>
+  </defs>
+  <rect width="1155" height="1000" fill="#000" />
+  <path
+    d="M120 520 H320 L380 520 L430 340 L480 660 L530 520 H1020"
+    stroke="url(#pulseGradient)"
+    stroke-width="50"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+    opacity="0.98"
+  >
+    <animate
+      attributeName="d"
+      dur="1.8s"
+      repeatCount="indefinite"
+      values="M120 520 H320 L380 520 L430 340 L480 660 L530 520 H1020;
+              M120 520 H320 L380 520 L430 360 L480 640 L530 520 H1020;
+              M120 520 H320 L380 520 L430 340 L480 660 L530 520 H1020"
+    />
+  </path>
+  <circle cx="380" cy="520" r="32" fill="#00E5FF" opacity="0.35">
+    <animate attributeName="opacity" values="0.35;0.85;0.35" dur="1.8s" repeatCount="indefinite" />
+    <animate attributeName="r" values="32;48;32" dur="1.8s" repeatCount="indefinite" />
+  </circle>
+</svg>

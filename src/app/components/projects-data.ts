@@ -199,6 +199,36 @@ export const projects: Project[] = [
       "Built with React 19 and Vite 7 for fast dev and build cycles. Tailwind CSS 4 via the official Vite plugin handles all styling. Routing handled by React Router 7 with clean client-side navigation between Home and Demo.",
     ],
   },
+  {
+    id: "7",
+    name: "Nexus AI Dashboard",
+    type: "Frontend",
+    size: "540 MB",
+    url: "https://nexus-ai-gamma-gold.vercel.app/",
+    logo: "/logo.svg",
+    image: "/project-image-8.png",
+    description: "NexusAi: an Angular 21 admin/dashboard app with authentication, AI assistant, analytics, and reusable UI components.",
+    technologies: [
+      "Angular 21",
+      "TypeScript",
+      "Tailwind CSS",
+      "Angular CDK",
+      "ng-apexcharts",
+      "GSAP",
+      "@lucide/angular",
+      "marked",
+      "RxJS",
+      "Vitest",
+      "Angular CLI",
+    ],
+    details: [
+      "Modern Angular web application scaffolded with the Angular CLI, built for a responsive SaaS-style admin/dashboard experience.",
+      "Includes authenticated layouts and sections for Dashboard, Analytics, Profile, Projects, Team, and Settings.",
+      "Features an AI assistant and command palette UI components for fast workflow navigation and contextual actions.",
+      "Uses ApexCharts via ng-apexcharts for analytic visualizations, GSAP for animations, Angular CDK for accessible interactions, and marked for markdown parsing.",
+      "Structured around reusable cards, charts, iconography, and skeleton loading components to support a polished, component-based UI.",
+    ],
+  },
 ];
 
 // Legacy alias kept for any existing imports
