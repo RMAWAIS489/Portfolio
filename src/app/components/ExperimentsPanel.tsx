@@ -1,20 +1,36 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { experiments, allTags, type Experiment } from "./experiments-data";
+import ExperimentModal from "./ExperimentModal";
 
-function ExperimentCard({ exp }: { exp: Experiment }) {
+function ExperimentCard({ exp, onClick }: { exp: Experiment; onClick: () => void }) {
   return (
-    <div className="exp-card border border-[#00E5FF] bg-[#021114] flex flex-col cursor-pointer hover:shadow-[0_0_16px_rgba(0,229,255,0.25)]">
+    <div
+      onClick={onClick}
+      className="exp-card border border-[#00E5FF] bg-[#021114] flex flex-col cursor-pointer hover:shadow-[0_0_16px_rgba(0,229,255,0.25)]"
+    >
       {/* Cover image area */}
-      <div className="relative h-[160px] shrink-0">
+      <div className="relative h-[160px] shrink-0 overflow-hidden">
+        {/* Gradient fallback always behind */}
         <div
           className="absolute inset-0"
           style={{ background: exp.gradient }}
         />
+        {/* Real image when available */}
+        {exp.image && (
+          <Image
+            src={exp.image}
+            alt={exp.title}
+            fill
+            sizes="(max-width: 640px) 100vw, 50vw"
+            className="object-cover"
+          />
+        )}
         {/* Status badge */}
         <div
-          className={`absolute top-2 right-2 px-[6px] py-[2px] text-[10px] font-bold tracking-[0.1em] uppercase border bg-[rgba(2,17,20,0.85)] [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace] ${
+          className={`absolute top-2 right-2 z-10 px-[6px] py-[2px] text-[10px] font-bold tracking-[0.1em] uppercase border bg-[rgba(2,17,20,0.85)] [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace] ${
             exp.status === "Completed"
               ? "text-[#aaff00] border-[#aaff00]"
               : "text-[#FFD700] border-[#FFD700]"
@@ -22,8 +38,11 @@ function ExperimentCard({ exp }: { exp: Experiment }) {
         >
           {exp.status}
         </div>
+        {/* VIEW overlay */}
+        <div className="exp-card-view-overlay absolute inset-0 z-10 flex items-center justify-center bg-[rgba(0,0,0,0.55)] opacity-0 transition-opacity duration-150">
+        </div>
         {/* Scan line overlay */}
-        <div className="scan-line" />
+        <div className="scan-line z-20" />
       </div>
 
       {/* Card body */}
@@ -48,6 +67,7 @@ function ExperimentCard({ exp }: { exp: Experiment }) {
 
 export default function ExperimentsPanel() {
   const [activeTag, setActiveTag] = useState("All");
+  const [selectedExp, setSelectedExp] = useState<Experiment | null>(null);
 
   const filtered =
     activeTag === "All"
@@ -80,6 +100,9 @@ export default function ExperimentsPanel() {
         .exp-card:hover .scan-line {
           opacity: 1;
           animation: expScan 1.8s linear infinite;
+        }
+        .exp-card:hover .exp-card-view-overlay {
+          opacity: 1;
         }
       `}</style>
 
@@ -151,7 +174,7 @@ export default function ExperimentsPanel() {
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {filtered.map((exp) => (
-                  <ExperimentCard key={exp.id} exp={exp} />
+                  <ExperimentCard key={exp.id} exp={exp} onClick={() => setSelectedExp(exp)} />
                 ))}
               </div>
             )}
@@ -159,6 +182,13 @@ export default function ExperimentsPanel() {
         </div>
 
       </div>
+
+      {selectedExp && (
+        <ExperimentModal
+          experiment={selectedExp}
+          onClose={() => setSelectedExp(null)}
+        />
+      )}
     </div>
   );
 }
