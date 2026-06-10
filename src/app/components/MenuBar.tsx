@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navItems, navHref, isNavActive } from "./nav-config";
 
-export default function MenuBar({ onLoginClick }: { onLoginClick?: () => void }) {
+export default function MenuBar({ onContactClick }: { onContactClick?: () => void }) {
   const pathname = usePathname();
 
   return (
@@ -53,12 +53,12 @@ export default function MenuBar({ onLoginClick }: { onLoginClick?: () => void })
         })}
       </div>
 
-      {/* Login */}
+      {/* Contact */}
       <button
-        onClick={onLoginClick}
+        onClick={onContactClick}
         className="w-auto shrink-0 border border-[#00E5FF] bg-[#00E5FF] px-3 py-[2px] text-[12px] uppercase tracking-[0.14em] text-[#040e0f] transition-colors duration-150 hover:bg-[#021114] hover:text-[#00E5FF] sm:text-[13px] lg:px-2 lg:text-[13px]"
       >
-        LOGIN
+        CONTACT
       </button>
     </div>
   );

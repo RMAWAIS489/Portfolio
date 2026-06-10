@@ -26,7 +26,12 @@ export default function ProjectsPanel() {
   const [selected, setSelected] = useState<Project | null>(null);
 
   const filtered =
-    active === "All" ? projects : projects.filter((p) => p.type === active);
+    active === "All"
+      ? projects
+      : projects.filter((p) =>
+          p.type === active ||
+          (active !== "Full Stack" && p.type === "Full Stack")
+        );
 
   return (
     <div className="flex flex-1 min-h-0 flex-col min-w-0">

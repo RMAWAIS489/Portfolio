@@ -6,7 +6,7 @@ import {
 } from "react-icons/si";
 import type { IconType } from "react-icons";
 
-export const navItems = ["Info", "Projects", "Experiments", "Articles"];
+export const navItems = ["Info", "Projects", "Experiments", "Services"];
 
 export interface Skill {
   label: string;

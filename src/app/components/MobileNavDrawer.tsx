@@ -9,10 +9,10 @@ import { navItems, navHref, isNavActive } from "./nav-config";
 type Props = {
   open: boolean;
   onClose: () => void;
-  onLoginClick: () => void;
+  onContactClick: () => void;
 };
 
-export default function MobileNavDrawer({ open, onClose, onLoginClick }: Props) {
+export default function MobileNavDrawer({ open, onClose, onContactClick }: Props) {
   const pathname = usePathname();
   const onCloseRef = useRef(onClose);
   onCloseRef.current = onClose;
@@ -90,11 +90,11 @@ export default function MobileNavDrawer({ open, onClose, onLoginClick }: Props) 
             type="button"
             onClick={() => {
               onClose();
-              onLoginClick();
+              onContactClick();
             }}
             className="border border-[#00E5FF] bg-[#00E5FF] py-3 text-[12px] font-bold uppercase tracking-[0.14em] text-[#040e0f] hover:bg-[#021114] hover:text-[#00E5FF]"
           >
-            Login
+            Contact
           </button>
           <button
             type="button"

@@ -6,6 +6,7 @@ import MenuBar from "./MenuBar";
 import Footer from "./Footer";
 import LoginModal from "./LoginModal";
 import ConnectModal from "./ConnectModal";
+import ContactModal from "./ContactModal";
 import SystemOverrideModal from "./SystemOverrideModal";
 import MobileNavDrawer from "./MobileNavDrawer";
 import { ModalProvider } from "./ModalContext";
@@ -16,6 +17,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
   const [connectOpen, setConnectOpen] = useState(false);
   const [overrideOpen, setOverrideOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   const closeMobileNav = useCallback(() => setMobileNavOpen(false), []);
 
@@ -24,6 +26,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
       openConnect={() => setConnectOpen(true)}
       openLogin={() => setLoginOpen(true)}
       openOverride={() => setOverrideOpen(true)}
+      openContact={() => setContactOpen(true)}
     >
       <PageLoader />
       <div className="flex h-[100dvh] flex-col overflow-hidden bg-[#021114] text-cyan-100">
@@ -36,7 +39,7 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
           <div className="h-[2px] w-full shrink-0 bg-[#00E5FF]" />
 
           <div className="hidden min-w-0 shrink-0 lg:block">
-            <MenuBar onLoginClick={() => setLoginOpen(true)} />
+            <MenuBar onContactClick={() => setContactOpen(true)} />
             <div className="h-[2px] w-full shrink-0 bg-[#00E5FF]" />
           </div>
 
@@ -49,12 +52,13 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
         <MobileNavDrawer
           open={mobileNavOpen}
           onClose={closeMobileNav}
-          onLoginClick={() => setLoginOpen(true)}
+          onContactClick={() => setContactOpen(true)}
         />
 
         {loginOpen    && <LoginModal    onClose={() => setLoginOpen(false)}    />}
         {connectOpen  && <ConnectModal  onClose={() => setConnectOpen(false)}  />}
         {overrideOpen && <SystemOverrideModal onClose={() => setOverrideOpen(false)} />}
+        {contactOpen  && <ContactModal  onClose={() => setContactOpen(false)}  />}
       </div>
     </ModalProvider>
   );

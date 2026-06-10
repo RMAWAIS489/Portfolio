@@ -6,12 +6,14 @@ interface ModalContextValue {
   openConnect: () => void;
   openLogin: () => void;
   openOverride: () => void;
+  openContact: () => void;
 }
 
 const ModalContext = createContext<ModalContextValue>({
   openConnect: () => {},
   openLogin: () => {},
   openOverride: () => {},
+  openContact: () => {},
 });
 
 export function useModal() {
@@ -23,14 +25,16 @@ export function ModalProvider({
   openConnect,
   openLogin,
   openOverride,
+  openContact,
 }: {
   children: React.ReactNode;
   openConnect: () => void;
   openLogin: () => void;
   openOverride: () => void;
+  openContact: () => void;
 }) {
   return (
-    <ModalContext.Provider value={{ openConnect, openLogin, openOverride }}>
+    <ModalContext.Provider value={{ openConnect, openLogin, openOverride, openContact }}>
       {children}
     </ModalContext.Provider>
   );
