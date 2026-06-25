@@ -47,11 +47,10 @@ function IconMedium() {
 }
 
 const contacts = [
-  { label: "GitHub",   handle: "github.com/muhammadawais",         url: "https://github.com",             Icon: IconGitHub   },
-  { label: "LinkedIn", handle: "linkedin.com/in/muhammadawais",    url: "https://linkedin.com",           Icon: IconLinkedIn },
-  { label: "X",        handle: "x.com/muhammadawais",              url: "https://x.com",                  Icon: IconX        },
-  { label: "Email",    handle: "muhammadawais@gmail.com",          url: "mailto:muhammadawais@gmail.com", Icon: IconEmail    },
-  { label: "Medium",   handle: "medium.com/@muhammadawais",        url: "https://medium.com",             Icon: IconMedium   },
+  { label: "GitHub",   handle: "github.com/muhammadawais",         url: "https://github.com",                Icon: IconGitHub   },
+  { label: "LinkedIn", handle: "linkedin.com/in/muhammadawais",    url: "https://linkedin.com",              Icon: IconLinkedIn },
+  { label: "Email",    handle: "rmawais489@gmail.com",             url: "mailto:rmawais489@gmail.com",       Icon: IconEmail    },
+  { label: "Medium",   handle: "medium.com/@rmawais489",           url: "https://medium.com/@rmawais489",    Icon: IconMedium   },
 ];
 
 export default function ConnectModal({ onClose }: Props) {
@@ -136,8 +135,8 @@ export default function ConnectModal({ onClose }: Props) {
           </div>
 
           <a
-            href="/resume.pdf"
-            download
+            href="/Awais_CV.pdf"
+            download="Awais_CV.pdf"
             className="resume-btn flex items-center justify-center gap-3 border border-[#7ba205] bg-[#021114] px-4 py-[14px] text-[#7ba205] text-[13px] font-bold tracking-[0.18em] uppercase [font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,'Liberation_Mono','Courier_New',monospace] hover:bg-[#00E5FF] hover:text-[#021114] transition-colors duration-150 no-underline mb-1"
           >
             <span className="text-[16px]">⬇</span>

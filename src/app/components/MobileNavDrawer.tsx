@@ -106,13 +106,14 @@ export default function MobileNavDrawer({ open, onClose, onContactClick }: Props
           >
             Connect
           </button>
-          <button
-            type="button"
+          <a
+            href="/Awais_CV.pdf"
+            download="Awais_CV.pdf"
             onClick={onClose}
-            className="border border-[#00E5FF] py-3 text-[12px] font-bold uppercase tracking-[0.12em] text-[#00E5FF] hover:bg-[#00E5FF]/10"
+            className="border border-[#00E5FF] py-3 text-[12px] font-bold uppercase tracking-[0.12em] text-[#00E5FF] hover:bg-[#00E5FF]/10 no-underline text-center block"
           >
             Download
-          </button>
+          </a>
         </div>
       </div>
     </div>
